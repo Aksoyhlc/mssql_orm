@@ -1,4 +1,5 @@
 test/
+pubspec.lock
 doc/superpowers/
 **/.mssql_orm_staging/
 **/.mssql_orm_backup/

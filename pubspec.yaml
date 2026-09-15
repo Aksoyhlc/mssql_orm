@@ -1,6 +1,6 @@
 name: mssql_orm
 description: Typed query builder and database-first ORM for SQL Server, on top of the mssql_native driver.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/Aksoyhlc/mssql_orm
 repository: https://github.com/Aksoyhlc/mssql_orm
 issue_tracker: https://github.com/Aksoyhlc/mssql_orm/issues
@@ -12,7 +12,7 @@ dependencies:
   collection: ^1.19.1
   crypto: ^3.0.7
   meta: ^1.15.0
-  mssql_native: '>=0.0.1 <0.1.0'
+  mssql_native: '>=0.0.2 <0.1.0'
 
 dev_dependencies:
   lints: ^6.1.0
