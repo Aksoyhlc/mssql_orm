@@ -1,0 +1,12 @@
+.dart_tool/
+build/
+pubspec.lock
+.DS_Store
+.mssql_orm_staging/
+.mssql_orm_backup/
+.mssql_orm_journal.json
+
+
+# Generator cache. Records absolute scaffold paths, so it is machine-local
+# and must not be committed.
+**/.mssql_orm.json

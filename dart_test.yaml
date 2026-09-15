@@ -1,0 +1,19 @@
+# VM only: this package builds SQL strings and reads catalog views through the
+# dart:ffi driver. There is no web target to attempt.
+#
+# The builder, repository and generator suites need no server. The ones that do
+# follow the driver's convention: guarded by MSSQL_NATIVE_LIVE=1, skipped
+# otherwise.
+#
+# Run the live suites with --concurrency=1:
+#
+#   MSSQL_NATIVE_LIVE=1 dart test --concurrency=1
+#
+# Each live file owns its own schema, so they cannot collide on object names.
+# They still deadlock without this: every one of them creates and drops tables
+# in setUpAll, and concurrent DDL from several sessions contends on SQL
+# Server's catalog locks — error 1205, intermittently, on whichever file loses.
+# dart_test.yaml cannot set concurrency, so it is a flag, and the same one the
+# driver's own CI uses for the same reason.
+platforms:
+  - vm

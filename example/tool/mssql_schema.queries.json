@@ -1,0 +1,66 @@
+{
+  "queries": [
+    {
+      "path": "category_trend.sql",
+      "hash": "2fc4d7a4581cb2f636a8274ccea839f628462cb62f7610c9f798595cf2b3d971",
+      "columns": [
+        {
+          "ordinal": 1,
+          "name": "Month",
+          "sqlTypeName": "date",
+          "nullable": false,
+          "maxLength": 0,
+          "precision": 0,
+          "scale": 0
+        },
+        {
+          "ordinal": 2,
+          "name": "Category",
+          "sqlTypeName": "nvarchar",
+          "nullable": false,
+          "maxLength": 0,
+          "precision": 0,
+          "scale": 0
+        },
+        {
+          "ordinal": 3,
+          "name": "Revenue",
+          "sqlTypeName": "decimal",
+          "nullable": false,
+          "maxLength": 0,
+          "precision": 18,
+          "scale": 2
+        },
+        {
+          "ordinal": 4,
+          "name": "Lines",
+          "sqlTypeName": "int",
+          "nullable": false,
+          "maxLength": 0,
+          "precision": 0,
+          "scale": 0
+        }
+      ],
+      "parameters": [
+        {
+          "name": "rootId",
+          "sqlTypeName": "int",
+          "nullable": false,
+          "declaration": "int",
+          "maxLength": 0,
+          "precision": 0,
+          "scale": 0
+        },
+        {
+          "name": "since",
+          "sqlTypeName": "datetime2",
+          "nullable": false,
+          "declaration": "datetime2",
+          "maxLength": 0,
+          "precision": 0,
+          "scale": 0
+        }
+      ]
+    }
+  ]
+}
