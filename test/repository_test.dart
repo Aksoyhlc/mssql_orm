@@ -893,7 +893,7 @@ void main() {
         );
         final bound = column.bind(null);
         expect(bound, isA<MssqlValue>(), reason: '$type');
-        expect((bound! as MssqlValue).value, isNull, reason: '$type');
+        expect(bound.value, isNull, reason: '$type');
       }
     });
 
@@ -904,12 +904,12 @@ void main() {
         nullable: true,
         maxLength: -1,
       );
-      expect((column.bind(null)! as MssqlValue).value, isNull);
+      expect(column.bind(null).value, isNull);
     });
 
     test('a non-null value carries its column type too', () {
       final column = MssqlBoundColumn(name: 'C', type: MssqlType.nvarchar);
-      final bound = column.bind('text')! as MssqlValue;
+      final bound = column.bind('text');
       expect(bound.value, 'text');
       expect(bound.type, MssqlType.nvarchar);
     });
@@ -932,4 +932,3 @@ class _UpperCaseConverter extends MssqlTypeConverter<Object?, Object?> {
   @override
   Object? toSql(Object? value) => (value! as String).toUpperCase();
 }
-

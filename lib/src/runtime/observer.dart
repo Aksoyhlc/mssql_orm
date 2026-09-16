@@ -80,7 +80,7 @@ class MssqlQueryEvent {
   final Duration elapsed;
 
   /// Which kind of command ran.
-  final MssqlQueryKind kind;
+  final MssqlOrmQueryKind kind;
 
   final bool inTransaction;
 
@@ -151,7 +151,7 @@ class MssqlQueryEvent {
 ///
 /// Buffered reads and writes funnel through `query`. BCP does not, so
 /// [bulkCopy] is its own kind rather than pretending an INSERT ran.
-enum MssqlQueryKind { query, procedure, stream, bulkCopy }
+enum MssqlOrmQueryKind { query, procedure, stream, bulkCopy }
 
 /// Called once per statement, after it finishes.
 typedef MssqlQueryObserver = void Function(MssqlQueryEvent event);
@@ -228,7 +228,7 @@ class MssqlObservedSession with MssqlSession {
   }) => _watch(
     sql,
     parameters,
-    MssqlQueryKind.query,
+    MssqlOrmQueryKind.query,
     () => inner.query(
       sql,
       parameters: parameters,
@@ -263,7 +263,7 @@ class MssqlObservedSession with MssqlSession {
   }) => _watch(
     procedure,
     parameters,
-    MssqlQueryKind.procedure,
+    MssqlOrmQueryKind.procedure,
     () => inner.callProcedure(
       procedure,
       parameters: parameters,
@@ -321,7 +321,7 @@ class MssqlObservedSession with MssqlSession {
           sql: sql,
           parameters: _visibleParameters(parameters),
           elapsed: stopwatch.elapsed,
-          kind: MssqlQueryKind.stream,
+          kind: MssqlOrmQueryKind.stream,
           inTransaction: inner.inTransaction,
           rows: rows,
           failure: error,
@@ -339,7 +339,7 @@ class MssqlObservedSession with MssqlSession {
         sql: sql,
         parameters: _visibleParameters(parameters),
         elapsed: stopwatch.elapsed,
-        kind: MssqlQueryKind.stream,
+        kind: MssqlOrmQueryKind.stream,
         inTransaction: inner.inTransaction,
         rows: rows,
         compileElapsed: _takeCompileElapsed(this),
@@ -361,7 +361,7 @@ class MssqlObservedSession with MssqlSession {
   }) => _watch(
     'BULK INSERT $tableName',
     columns ?? tableName,
-    MssqlQueryKind.bulkCopy,
+    MssqlOrmQueryKind.bulkCopy,
     () => inner.bulkInsert(
       tableName: tableName,
       rows: rows,
@@ -379,7 +379,7 @@ class MssqlObservedSession with MssqlSession {
   Future<T> _watch<T>(
     String sql,
     Object parameters,
-    MssqlQueryKind kind,
+    MssqlOrmQueryKind kind,
     Future<T> Function() run, {
     int? Function(T result)? rows,
     int? Function(T result)? affected,
@@ -430,7 +430,7 @@ class MssqlObservedSession with MssqlSession {
     required String sql,
     required Object parameters,
     required Duration elapsed,
-    required MssqlQueryKind kind,
+    required MssqlOrmQueryKind kind,
     required T result,
     required int? rows,
     required int? affectedRows,

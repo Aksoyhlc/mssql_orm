@@ -1,7 +1,7 @@
 // GENERATED — do not edit. Rewritten on every run.
 //
 // Source: dbo.OrderLines
-// Generator: mssql_orm_dev 0.1.0
+// Generator: mssql_orm_dev 0.1.1
 // API contract: 2
 // Schema fingerprint: 59978c0771388bb6642ab43ccb54416f437d9b7675a5d98aac53be499dcbebd5
 //

@@ -27,7 +27,7 @@ void main() {
       final event = log.events.single;
       expect(event.sql, contains('FROM [dbo].[Users]'));
       expect(event.parameters, <String, Object?>{'q0': 'Ali'});
-      expect(event.kind, MssqlQueryKind.query);
+      expect(event.kind, MssqlOrmQueryKind.query);
       expect(event.rows, 2);
       expect(event.affectedRows, 2);
       expect(event.failed, isFalse);
@@ -38,7 +38,7 @@ void main() {
       final fake = FakeExecutor()..affected.add(7);
       await fake.observedBy(log.record).execute('DELETE FROM [dbo].[Users]');
       final event = log.events.single;
-      expect(event.kind, MssqlQueryKind.query);
+      expect(event.kind, MssqlOrmQueryKind.query);
       expect(event.affectedRows, 7);
       expect(event.rows, isNull);
     });
@@ -50,7 +50,7 @@ void main() {
         affected: 9,
       ).observedBy(log.record).query('SELECT 1');
       final event = log.events.single;
-      expect(event.kind, MssqlQueryKind.query);
+      expect(event.kind, MssqlOrmQueryKind.query);
       expect(event.rows, 3);
       expect(event.affectedRows, 9);
     });
@@ -199,9 +199,9 @@ void main() {
       await executor.queryRows('SELECT 1');
       await executor.execute('UPDATE T SET X = 1');
       expect(log.count, 2);
-      expect(log.events.map((e) => e.kind), <MssqlQueryKind>[
-        MssqlQueryKind.query,
-        MssqlQueryKind.query,
+      expect(log.events.map((e) => e.kind), <MssqlOrmQueryKind>[
+        MssqlOrmQueryKind.query,
+        MssqlOrmQueryKind.query,
       ]);
     });
   });
@@ -257,7 +257,7 @@ void main() {
         sql: 'SELECT 1',
         parameters: const <String, Object?>{},
         elapsed: const Duration(milliseconds: 2),
-        kind: MssqlQueryKind.query,
+        kind: MssqlOrmQueryKind.query,
         inTransaction: false,
         failure: StateError('nope'),
       ).toString();
@@ -272,7 +272,7 @@ MssqlQueryEvent _event(String sql, Duration elapsed, {int? rows}) =>
       sql: sql,
       parameters: const <String, Object?>{},
       elapsed: elapsed,
-      kind: MssqlQueryKind.query,
+      kind: MssqlOrmQueryKind.query,
       inTransaction: false,
       rows: rows,
     );
@@ -369,4 +369,3 @@ class _QueryOnlyExecutor with MssqlSession {
   @override
   Future<void> ping({MssqlCancellationToken? cancellationToken}) async {}
 }
-

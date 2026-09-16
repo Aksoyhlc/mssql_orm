@@ -1,6 +1,6 @@
 // GENERATED — do not edit. Rewritten on every run.
 //
-// Generator: mssql_orm_dev 0.1.0
+// Generator: mssql_orm_dev 0.1.1
 // API contract: 2
 //
 // Typed from SQL Server's own description of each query, by

@@ -1467,7 +1467,7 @@ abstract class MssqlEntityQuery<
             includeValues: context.observerOptions.includeParameterValues,
           ),
           elapsed: mappingElapsed + relationLoadElapsed,
-          kind: MssqlQueryKind.query,
+          kind: MssqlOrmQueryKind.query,
           inTransaction: session.inTransaction,
           rows: rowCount,
           mappingElapsed: mappingElapsed,

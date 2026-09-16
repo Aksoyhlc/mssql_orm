@@ -1,7 +1,7 @@
 // GENERATED — do not edit. Rewritten on every run.
 //
 // Source: dbo.Categories
-// Generator: mssql_orm_dev 0.1.0
+// Generator: mssql_orm_dev 0.1.1
 // API contract: 2
 // Schema fingerprint: be97dbf61c0fd24d7100c1139af476fb9bdaf7d11058fb72adc8ea1bf524bfca
 //

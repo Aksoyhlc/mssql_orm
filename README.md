@@ -75,10 +75,10 @@ Dart 3.10 or newer. Three packages, of which two reach a production build:
 
 ```yaml
 dependencies:
-  mssql_native: ^0.0.2
-  mssql_orm: ^0.0.2
+  mssql_native: ^0.1.1
+  mssql_orm: ^0.1.1
 dev_dependencies:
-  mssql_orm_dev: ^0.0.2     # only if you want the generated ORM
+  mssql_orm_dev: ^0.1.1     # only if you want the generated ORM
 ```
 
 Nothing else is installed. There is no ODBC driver, no SQL Server client and

@@ -79,7 +79,7 @@ export 'src/runtime/observer.dart'
         MssqlObservedSessionExtension,
         MssqlObserverOptions,
         MssqlQueryEvent,
-        MssqlQueryKind,
+        MssqlOrmQueryKind,
         MssqlQueryObserver,
         MssqlQueryRecorder,
         mssqlNoteCompileElapsed,

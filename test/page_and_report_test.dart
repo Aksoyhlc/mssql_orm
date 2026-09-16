@@ -138,8 +138,8 @@ void main() {
 
     test('bind types a null, and a value too', () {
       final c = column(MssqlType.int32, nullable: true);
-      expect((c.bind(null)! as MssqlValue).value, isNull);
-      final bound = c.bind(7)! as MssqlValue;
+      expect(c.bind(null).value, isNull);
+      final bound = c.bind(7);
       expect(bound.value, 7);
       expect(bound.type, MssqlType.int32);
     });
@@ -232,4 +232,3 @@ void main() {
     });
   });
 }
-

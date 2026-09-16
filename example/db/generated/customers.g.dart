@@ -1,7 +1,7 @@
 // GENERATED — do not edit. Rewritten on every run.
 //
 // Source: dbo.Customers
-// Generator: mssql_orm_dev 0.1.0
+// Generator: mssql_orm_dev 0.1.1
 // API contract: 2
 // Schema fingerprint: 1f547b82eb1a24bdc6879a30df963bb6698c24f9ae1246ddd0c587fcc81cbbde
 //
