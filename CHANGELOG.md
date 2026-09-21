@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+Require mssql_native 0.2.0, which turns on the SET options a filtered index
+needs.
+
 ## 0.1.1
 Require mssql_native 0.1.1 and keep the ORM query-kind API distinct from the
 driver observability API.
